@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @scheduling.user.name %>
+</p>
+
+<p>
+  <strong>Travel:</strong>
+  <%= @scheduling.travel.destino %>
+</p>
+
+<%= link_to 'Edit', edit_scheduling_path(@scheduling) %> |
+<%= link_to 'Back', schedulings_path %>

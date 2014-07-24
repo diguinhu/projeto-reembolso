@@ -1,0 +1,39 @@
+<%= form_for [@travel,@cost] do |f| %>
+  <% if @cost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cost.errors.count, "error") %> prohibited this cost from being saved:</h2>
+
+      <ul>
+      <% @cost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.select :tipo, [['Alimentação'],
+                         ['Combustível',],
+                         ['Hospedagem',],
+                         ['Pedágio',],
+                         ['Estacionamento',],
+                         ['Outros Gastos',]]
+     %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.date_select :data %>
+  </div>
+  <div class="field">
+    <%= f.label :travel_id %><br>
+    <%= f.text_field :travel_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
