@@ -13,18 +13,14 @@
 
   <div class="field">
     <%= f.label :tipo %><br>
-    <%= f.select :tipo, [['Alimentação'],
-                         ['Combustível',],
-                         ['Hospedagem',],
-                         ['Pedágio',],
-                         ['Estacionamento',],
-                         ['Outros Gastos',]]
-     %>
+    <%= f.collection_select(:tipo_id, Tipo.order(:description), :id, :description)%>
   </div>
+  <%= link_to 'New Tipo', new_tipo_path %>
   <div class="field">
     <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
+    <%= f.text_field :valor%>
   </div>
+  
   <div class="field">
     <%= f.label :data %><br>
     <%= f.date_select :data %>
@@ -33,6 +29,8 @@
     <%= f.label :travel_id %><br>
     <%= f.text_field :travel_id %>
   </div>
+
+  
   <div class="actions">
     <%= f.submit %>
   </div>

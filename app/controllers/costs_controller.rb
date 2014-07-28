@@ -15,6 +15,7 @@ class CostsController < ApplicationController
   # GET /costs/1
   # GET /costs/1.json
   def show
+   
   end
 
   # GET /costs/new
@@ -80,7 +81,7 @@ class CostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cost_params
-      params.require(:cost).permit(:tipo, :valor, :data, :travel_id)
+      params.require(:cost).permit(:tipo, :valor, :data, :travel_id, :tipo_id)
     end
 
     

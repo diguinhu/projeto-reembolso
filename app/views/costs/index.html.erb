@@ -14,10 +14,10 @@
   <tbody>
     <% @costs.each do |cost| %>
       <tr>
-        <td><%= cost.tipo %></td>
+        <td><%= cost.tipo.description %></td>
         <td><%= cost.valor %></td>
         <td><%= cost.data %></td>
-        <td><%= cost.travel %></td>
+        <td><%= cost.travel.id %></td>
         <td><%= link_to 'Show', cost %></td>
         <td><%= link_to 'Edit', edit_cost_path(cost) %></td>
         <td><%= link_to 'Destroy', cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724034340) do
+ActiveRecord::Schema.define(version: 20140726180232) do
 
   create_table "costs", force: true do |t|
-    t.string   "tipo"
     t.decimal  "valor",      precision: 10, scale: 0
     t.date     "data"
     t.integer  "travel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tipo_id"
   end
 
+  add_index "costs", ["tipo_id"], name: "index_costs_on_tipo_id", using: :btree
   add_index "costs", ["travel_id"], name: "index_costs_on_travel_id", using: :btree
 
   create_table "homes", force: true do |t|
@@ -38,6 +39,12 @@ ActiveRecord::Schema.define(version: 20140724034340) do
 
   add_index "schedulings", ["travel_id"], name: "index_schedulings_on_travel_id", using: :btree
   add_index "schedulings", ["user_id"], name: "index_schedulings_on_user_id", using: :btree
+
+  create_table "tipos", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "travels", force: true do |t|
     t.string   "destino"
@@ -63,6 +70,10 @@ ActiveRecord::Schema.define(version: 20140724034340) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
