@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <style type="text/css">
+
+  #content2{
+        display: none;
+      }
+  </style>
+
   <div class="field">
     <%= f.label :tipo %><br>
     <%= f.collection_select(:tipo_id, Tipo.order(:description), :id, :description)%>
@@ -25,9 +32,13 @@
     <%= f.label :data %><br>
     <%= f.date_select :data %>
   </div>
-  <div class="field">
+  <div id = "content2">
     <%= f.label :travel_id %><br>
     <%= f.text_field :travel_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cover %><br>
+    <%= f.file_field :cover %>
   </div>
 
   

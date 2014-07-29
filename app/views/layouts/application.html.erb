@@ -18,7 +18,7 @@
 			padding-top: 10px;
 			padding-left: 5px;
 			padding-right: 5px;
-			background-color: #B0C4DE;
+			background-color: #32CD32;
 			border-radius: 3px;
 		}
 
@@ -26,7 +26,7 @@
 			color: #fff;
 			padding: 5px 10px;
 			border-radius: 3px;
-			background-color: #006A9B;
+			background-color: #006400;
 			text-decoration: none;
 			margin-right: 5px;
 			margin-left: 5px;
@@ -44,7 +44,7 @@
 			color: #fff;
 			padding: 5px 10px;
 			border-radius: 3px;
-			background-color: #006A9B;
+			background-color: #006400;
 			text-decoration: none;
 			margin-right: 5px;
 			margin-left: 5px;
@@ -68,26 +68,19 @@
 			color: #fff;
 			padding: 5px 10px;
 			border-radius: 3px;
-			background-color: #006A9B;
+			background-color: #006400;
 			text-decoration: none;
 			margin-right: 6px;
 			margin-left: 5px;
 			font-size: 18px;
 		}
 		#h1-menu{
-			color: #006A9B;
+			color: #fff;
 			text-shadow:0px 0px 3px #667;
 		}
 
 
 	</style>
-
-
-
-
-
-
-
 
   <title>Teste20</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -102,7 +95,7 @@
 	<% if user_signed_in? %>
 	<p id="h2-home"><%= link_to "Home", homes_path %></p>
 	<div id="content4">
-		<strong><h1 id="h1-menu">Travel assistant</h1></strong>
+		<strong><h1 id="h1-menu">Travels</h1></strong>
 	</div>
 	<div id="content2">
 	<%=image_tag current_user.avatar.url(:thumb)%>

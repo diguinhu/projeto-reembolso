@@ -14,7 +14,8 @@
     <% @travels.each do |travel| %>
       <tr>
         <td><%= travel.destino %></td>
-        <td><%= travel.data %></td>
+        <td><%= travel.data.strftime("%d-%m-%Y") %></td>
+        <td><%= current_user.name %></td>
         <td><%= link_to 'Show', travel %></td>
         <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
         <td><%= link_to 'Destroy', travel, method: :delete, data: { confirm: 'Are you sure?' } %></td>

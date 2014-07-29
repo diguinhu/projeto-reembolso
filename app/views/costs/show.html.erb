@@ -2,7 +2,7 @@
 
 <p>
   <strong>Tipo:</strong>
-  <%= @cost.tipo %>
+  <%= @cost.tipo.description %>
 </p>
 
 <p>
@@ -12,12 +12,11 @@
 
 <p>
   <strong>Data:</strong>
-  <%= @cost.data %>
+  <%= @cost.data.strftime("%d-%m-%Y") %>
 </p>
 
 <p>
-  <strong>Travel:</strong>
-  <%= @cost.travel %>
+<%= image_tag @cost.cover.url(:thumb)%>
 </p>
 
 <%= link_to 'Edit', edit_cost_path(@cost) %> |

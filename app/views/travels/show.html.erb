@@ -17,3 +17,7 @@
 <%= link_to 'New Cost', new_travel_cost_path(@travel) %>
 <%= link_to 'Costs', travel_costs_path(@travel)%>
 
+<strong><h2>Download:</h2></strong>
+<%= link_to "CSV", travels_path(format: "csv") %>
+<%= link_to "Excel", travels_path(format: "xls") %>
+

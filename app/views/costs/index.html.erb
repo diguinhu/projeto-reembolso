@@ -6,7 +6,6 @@
       <th>Tipo</th>
       <th>Valor</th>
       <th>Data</th>
-      <th>Travel</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +15,7 @@
       <tr>
         <td><%= cost.tipo.description %></td>
         <td><%= cost.valor %></td>
-        <td><%= cost.data %></td>
-        <td><%= cost.travel.id %></td>
+        <td><%= cost.data.strftime("%d-%m-%Y") %></td>
         <td><%= link_to 'Show', cost %></td>
         <td><%= link_to 'Edit', edit_cost_path(cost) %></td>
         <td><%= link_to 'Destroy', cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>

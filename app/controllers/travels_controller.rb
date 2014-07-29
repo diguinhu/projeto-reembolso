@@ -9,6 +9,11 @@ class TravelsController < ApplicationController
     else
       redirect_to '/users/sign_in'
     end
+    respond_to do |format|
+      format.html
+      format.csv { render text: @travels.to_csv }
+      format.xls { send_data @travels.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /travels/1

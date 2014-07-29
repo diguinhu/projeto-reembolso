@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726180232) do
+ActiveRecord::Schema.define(version: 20140729022707) do
 
   create_table "costs", force: true do |t|
-    t.decimal  "valor",      precision: 10, scale: 0
+    t.decimal  "valor",              precision: 10, scale: 0
     t.date     "data"
     t.integer  "travel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "tipo_id"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "costs", ["tipo_id"], name: "index_costs_on_tipo_id", using: :btree
@@ -49,12 +53,9 @@ ActiveRecord::Schema.define(version: 20140726180232) do
   create_table "travels", force: true do |t|
     t.string   "destino"
     t.date     "data"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "travels", ["user_id"], name: "index_travels_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
