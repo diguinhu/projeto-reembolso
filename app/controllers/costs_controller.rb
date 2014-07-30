@@ -7,6 +7,11 @@ class CostsController < ApplicationController
     @travel = Travel.find(params[:travel_id])
     if current_user.present?
       @costs = @travel.costs
+      respond_to do |format|
+      format.html
+      format.csv { render text: @costs.to_csv }
+      format.xls #{ send_data @travels.to_csv(col_sep: "\t") }
+    end
       else
       redirect_to '/users/sign_in'
     end

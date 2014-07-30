@@ -1,3 +1,4 @@
+<div id="centralize">
 <h1>Listing costs</h1>
 
 <table>
@@ -16,7 +17,7 @@
         <td><%= cost.tipo.description %></td>
         <td><%= cost.valor %></td>
         <td><%= cost.data.strftime("%d-%m-%Y") %></td>
-        <td><%= link_to 'Show', cost %></td>
+        <td><%= link_to 'Show', [@travel,cost] %></td>
         <td><%= link_to 'Edit', edit_cost_path(cost) %></td>
         <td><%= link_to 'Destroy', cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -28,3 +29,10 @@
 
 <%= link_to 'New Cost', new_travel_cost_path %>
 <%= link_to 'Return to Travel', travels_path %>
+
+<strong><h2>Download:</h2></strong>
+<%= link_to "CSV", travel_costs_path(format: "csv") %>
+<%= link_to "Excel", travel_costs_path(format: "xls") %>
+
+
+</div>

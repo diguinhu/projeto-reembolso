@@ -1,23 +1,54 @@
+<div id="centralize">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Destino:</strong>
-  <%= @travel.destino %>
-</p>
+<strong><h2>Destino:</h2></strong>
+  <%= @travel.destino %> (<%= @travel.data.strftime("%d-%m-%Y") %>)
 
-<p>
-  <strong>Data:</strong>
-  <%= @travel.data %>
-</p>
+  
+
+  <strong><h3>Costs</h3></strong>
+	<table>
+  		<thead>
+    		<tr>
+      		<th>Valor</th>
+      		<th>Data</th>
+      		<th>Tipo</th>
+      		<th colspan="3"></th>
+    		</tr>
+  		</thead>
+
+  		<tbody>
+
+    		<% @travel.costs.each do |cost| %>
+      	<tr>
+        	<td><%= cost.valor %></td>
+        	<td><%= cost.data.strftime("%d-%m-%Y") %></td>
+        	<td><%= cost.tipo.description %></td>
+        	<td><%= link_to 'Show', [@travel,cost] %></td>
+       	 	<td><%= link_to 'Edit', edit_travel_cost_path(@travel,cost) %></td>
+        	<td><%= link_to 'Destroy', [@travel,cost], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      	</tr>
+    	<% end %>
+  	</tbody>
+	</table>
+
+	<p>
+    <% total= @travel.costs.pluck(:valor).sum %>
+    <strong>Valor total:</strong> <%= total %>
+  </p>
 
 
 
 <%= link_to 'Edit', edit_travel_path(@travel) %> |
 <%= link_to 'Back', travels_path %>
+<p>
+  <strong>New Cost:</strong>
+  </p>
 <%= link_to 'New Cost', new_travel_cost_path(@travel) %>
 <%= link_to 'Costs', travel_costs_path(@travel)%>
 
-<strong><h2>Download:</h2></strong>
-<%= link_to "CSV", travels_path(format: "csv") %>
-<%= link_to "Excel", travels_path(format: "xls") %>
+
+
+</div>
+
 

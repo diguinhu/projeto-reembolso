@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729022707) do
+ActiveRecord::Schema.define(version: 20140730010708) do
 
   create_table "costs", force: true do |t|
     t.decimal  "valor",              precision: 10, scale: 0
@@ -55,7 +55,10 @@ ActiveRecord::Schema.define(version: 20140729022707) do
     t.date     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "travels", ["user_id"], name: "index_travels_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

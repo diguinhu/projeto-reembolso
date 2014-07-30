@@ -6,14 +6,15 @@ class TravelsController < ApplicationController
   def index
     if current_user.present?
     @travels = current_user.travels
-    else
-      redirect_to '/users/sign_in'
-    end
     respond_to do |format|
       format.html
       format.csv { render text: @travels.to_csv }
-      format.xls { send_data @travels.to_csv(col_sep: "\t") }
+      format.xls #{ send_data @travels.to_csv(col_sep: "\t") }
     end
+    else
+      redirect_to '/users/sign_in'
+    end
+    
   end
 
   # GET /travels/1
@@ -38,6 +39,7 @@ class TravelsController < ApplicationController
   # POST /travels.json
   def create
     @travel = Travel.new(travel_params)
+    @travel.user = current_user
 
     respond_to do |format|
       if @travel.save
@@ -82,6 +84,6 @@ class TravelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def travel_params
-      params.require(:travel).permit(:destino, :data, :user_id)
+      params.require(:travel).permit(:destino, :data)
     end
 end
