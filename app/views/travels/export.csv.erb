@@ -1,0 +1,44 @@
+<%
+headers = [
+    "User",
+    "Data",
+    "Destino",
+    "Total",
+    "Despesa",
+    "Valor da despesa"
+  ]
+
+  headers1 = [
+    "Valor Custo",
+    "Tipo"
+  ]
+
+  csv_output = CSV.generate do |csv|
+    csv << headers
+
+      csv << [
+        current_user.name,
+        @travel.data.strftime("%d-%m-%Y"),
+        @travel.destino,
+        @total
+      ]
+  end
+
+  csv_output2 = CSV.generate do |csv|
+    csv << headers1
+
+      @travel.costs.each do |cost|
+      csv << [
+        
+          cost.valor,
+          cost.tipo.description
+        ]
+      
+    end
+  end
+
+
+%>
+
+<%= csv_output.html_safe %>
+<%= csv_output2.html_safe %>

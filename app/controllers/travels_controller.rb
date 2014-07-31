@@ -20,6 +20,7 @@ class TravelsController < ApplicationController
   # GET /travels/1
   # GET /travels/1.json
   def show
+    @total= @travel.costs.pluck(:valor).sum
   end
 
   # GET /travels/new
@@ -74,6 +75,19 @@ class TravelsController < ApplicationController
       format.html { redirect_to travels_url, notice: 'Travel was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def export
+      if current_user.present?
+        @travel = Travel.find(params[:travel_id])
+        @cost = @travel.costs
+        @total= @travel.costs.pluck(:valor).sum
+        respond_to do |format|
+        format.html
+        format.csv
+        format.xls #{send_data @viagem.despesas.to_csv(col_sep: "\t") }
+        end
+      end
   end
 
   private

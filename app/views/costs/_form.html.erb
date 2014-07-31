@@ -22,7 +22,7 @@
     <%= f.label :tipo %><br>
     <%= f.collection_select(:tipo_id, Tipo.order(:description), :id, :description)%>
   </div>
-  <%= link_to 'New Tipo', new_tipo_path %>
+  
   <div class="field">
     <%= f.label :valor %><br>
     <%= f.text_field :valor%>
@@ -45,4 +45,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <div><h2><Strong>New tipo</h2></Strong>
+  <%= link_to 'New Tipo', new_tipo_path %>
+</div>
 <% end %>

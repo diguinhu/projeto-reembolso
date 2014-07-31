@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Usuario</Data></Cell>
+        <Cell><Data ss:Type="String">Data</Data></Cell>
+        <Cell><Data ss:Type="String">Destino</Data></Cell>
+        <Cell><Data ss:Type="String">Total</Data></Cell>
+
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String"><%= current_user.name %></Data></Cell>       
+        <Cell><Data ss:Type="String"><%= @travel.data %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @travel.destino %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= @total %></Data></Cell>
+      </Row>
+   
+    </Table>
+    <Table>
+      <Row>
+          <Cell><Data ss:Type="String">Cost</Data></Cell>
+          <Cell><Data ss:Type="String">Valor do custo</Data></Cell>
+      </Row>
+      <% @travel.costs.each do |cost| %>
+        <Row>
+            <Cell><Data ss:Type="String"><%= cost.tipo.description %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= cost.valor %></Data></Cell>
+        </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
