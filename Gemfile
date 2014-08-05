@@ -30,8 +30,12 @@ gem 'devise'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
+gem "rspec-rails", :group => [:test, :development]
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+  gem 'shoulda-matchers', require: false
 end
 
 # Use ActiveModel has_secure_password

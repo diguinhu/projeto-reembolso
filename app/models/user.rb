@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   #has_many :schedulings, dependent: :destroy
   #has_many :travels, through: :schedulings
+  validates :name, presence: true
   has_many :travels
   
   devise :database_authenticatable, :registerable,

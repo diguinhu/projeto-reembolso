@@ -1,17 +1,7 @@
 <%
-headers = [
-    "User",
-    "Data",
-    "Destino",
-    "Total",
-    "Despesa",
-    "Valor da despesa"
-  ]
+headers = [ "User", "Data", "Destino", "Total"]
 
-  headers1 = [
-    "Valor Custo",
-    "Tipo"
-  ]
+  headers1 = ["Tipo","Valor Custo"]
 
   csv_output = CSV.generate do |csv|
     csv << headers
@@ -30,8 +20,8 @@ headers = [
       @travel.costs.each do |cost|
       csv << [
         
-          cost.valor,
-          cost.tipo.description
+          cost.tipo.description,
+          cost.valor
         ]
       
     end
