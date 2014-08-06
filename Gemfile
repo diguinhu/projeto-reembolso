@@ -36,6 +36,7 @@ group :test do
   gem "capybara"
   gem "guard-rspec"
   gem 'shoulda-matchers', require: false
+  gem 'simplecov'
 end
 
 # Use ActiveModel has_secure_password

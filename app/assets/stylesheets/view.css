@@ -1,0 +1,95 @@
+	#content2{
+width: 500px;
+float: right;
+text-align: right;
+margin-top: -30px;
+}
+
+#content{
+height: 50px;
+margin-top: -10px;
+padding-top: 10px;
+padding-left: 5px;
+padding-right: 5px;
+background-color: #B0C4DE;
+border-radius: 3px;
+}
+
+#content2 a{
+color: #fff;
+padding: 5px 10px;
+border-radius: 3px;
+background-color: #006A9B;
+text-decoration: none;
+margin-right: 5px;
+margin-left: 5px;
+font-family: "Helveticalt77cnbd",sans-serif;
+
+}
+
+#content2 a:hover{
+opacity: 0.8;
+}
+
+#content3{
+text-align: left;
+}
+#content3 a{
+color: #fff;
+padding: 5px 10px;
+border-radius: 3px;
+background-color: #006A9B;
+text-decoration: none;
+margin-right: 5px;
+margin-left: 5px;
+font-family: "Helveticalt77cnbd",sans-serif;
+font-size: 12px;
+
+}
+#content4{
+margin-left: -40px;
+text-align: center;
+margin-top: -40px;
+
+
+}
+
+#text-to-center{
+margin-right: 60px;
+text-align: center;
+}
+
+#hr-home{
+border-color:#B0C4DE;
+}
+#h2-home a{
+color: #fff;
+padding: 5px 10px;
+border-radius: 3px;
+background-color: #006A9B;
+text-decoration: none;
+margin-right: 5px;
+margin-left: 5px;
+font-size: 20px;
+font-family: "Helveticalt77cnbd",sans-serif;
+}
+#h1-menu{
+color: #006A9B;
+text-shadow:0px 0px 3px #666;
+}
+
+#centralize{
+margin-right: auto;
+margin-left: auto;
+width: auto;
+}
+#profile{
+text-align: center;
+}
+#profile-name b{
+
+color: #999999;
+font-family: "Helveticalt77cnbd",sans-serif;
+font-size: 20px;
+
+}

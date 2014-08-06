@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   #has_many :schedulings, dependent: :destroy
   #has_many :travels, through: :schedulings
   validates :name, presence: true
+  validates :password, numericality: true
+  validates_length_of :name, maximum: 20
   has_many :travels
   
   devise :database_authenticatable, :registerable,

@@ -5,12 +5,12 @@ class Travel < ActiveRecord::Base
   validates :destino, presence: true
   has_many :costs, dependent: :destroy
 
-  def self.to_csv(options = {})
-  CSV.generate(options) do |csv|
-    csv << column_names
-    all.each do |travel|
-      csv << travel.attributes.values_at(*column_names)
-    end
-  end
-end
+  #def self.to_csv(options = {})
+  #CSV.generate(options) do |csv|
+   # csv << column_names
+    #all.each do |travel|
+     # csv << travel.attributes.values_at(*column_names)
+    #end
+ # end
+#end
 end
